@@ -7,8 +7,6 @@
 int main() {
 	struct passwd* wd = getpwuid(getuid());
 	
-	// Current username
-	const char* username = wd->pw_name;
 	// Currnet user home direcotry
 	const char* home_dir = wd->pw_dir;
 

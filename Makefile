@@ -7,7 +7,7 @@ OBJ = $(SRC:.c=.o)
 all: cwd
 
 .c.o:
-	gcc -O2 -c $<
+	gcc -Wall -O2 -c $<
 
 cwd: cwd.o
 	gcc cwd.o -o cwd
