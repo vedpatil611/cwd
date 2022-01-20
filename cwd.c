@@ -15,7 +15,6 @@ int main() {
 	// Current working directory
 	const char* current_dir = getenv("PWD");
 
-
 	// If currrent working directory is same as user's home direcotry, print '~'
 	if(strcmp(home_dir, current_dir) == 0)
 	{
@@ -30,7 +29,7 @@ int main() {
 	}
 
 	// Search last '/' and get the pointer
-	const char* dir_name_ptr = (const char*) ((long) strrchr(current_dir, '/') + 1);
+	const char* dir_name_ptr = strrchr(current_dir, '/') + 1;
 
 	// print directory name
 	printf("%s", dir_name_ptr);
