@@ -15,30 +15,25 @@ int main() {
 	// Current working directory
 	const char* current_dir = getenv("PWD");
 
-	if(strcmp(home_dir, current_dir) == 0)          // If currrent working directory is same as user's home direcotry, print ~
+
+	// If currrent working directory is same as user's home direcotry, print '~'
+	if(strcmp(home_dir, current_dir) == 0)
 	{
 		printf("~");
 		return 0;
 	}
-	else if(strcmp(current_dir, "/") == 0)         // If user is at root level print /
+	// If user is at root level print '/'
+	else if(strcmp(current_dir, "/") == 0)
 	{
 		printf("/");
 		return 0;
 	}
 
-	char dir[256];
-	strcpy(dir, current_dir);
-	char* tok = strtok(dir, "/");
-	char* tmp;
-	
-	while(tok != NULL)                             // Keep tokenizing current dir path until you get current folder name
-	{
-		tmp = tok;
-		tok = strtok(NULL, "/");
-	}
+	// Search last '/' and get the pointer
+	const char* dir_name_ptr = (const char*) ((long) strrchr(current_dir, '/') + 1);
 
 	// print directory name
-	printf("%s", tmp);
+	printf("%s", dir_name_ptr);
 
 	return 0;
 }
