@@ -1,14 +1,10 @@
-#include <pwd.h>
-#include <unistd.h>
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-	struct passwd* wd = getpwuid(getuid());
-	
 	// Currnet user home direcotry
-	const char* home_dir = wd->pw_dir;
+	const char* home_dir = getenv("HOME");
 
 	// Current working directory
 	const char* current_dir = getenv("PWD");
